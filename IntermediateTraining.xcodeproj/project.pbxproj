@@ -14,6 +14,7 @@
 		CD67EF792A08A9A900981326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD67EF782A08A9A900981326 /* Assets.xcassets */; };
 		CD67EF7C2A08A9A900981326 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD67EF7A2A08A9A900981326 /* LaunchScreen.storyboard */; };
 		CD67EF842A08ACB600981326 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD67EF832A08ACB600981326 /* NavigationController.swift */; };
+		CD67EF862A08B77C00981326 /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD67EF852A08B77C00981326 /* UIColor+Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CD67EF7B2A08A9A900981326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD67EF7D2A08A9A900981326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD67EF832A08ACB600981326 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		CD67EF852A08B77C00981326 /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				CD67EF7A2A08A9A900981326 /* LaunchScreen.storyboard */,
 				CD67EF7D2A08A9A900981326 /* Info.plist */,
 				CD67EF832A08ACB600981326 /* NavigationController.swift */,
+				CD67EF852A08B77C00981326 /* UIColor+Theme.swift */,
 			);
 			path = IntermediateTraining;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD67EF862A08B77C00981326 /* UIColor+Theme.swift in Sources */,
 				CD67EF742A08A9A600981326 /* ViewController.swift in Sources */,
 				CD67EF842A08ACB600981326 /* NavigationController.swift in Sources */,
 				CD67EF702A08A9A600981326 /* AppDelegate.swift in Sources */,

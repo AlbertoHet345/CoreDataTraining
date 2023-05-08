@@ -7,30 +7,46 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
         setupNavBar()
+        setupTableView()
     }
     
-    private func setupView() {
-        view.backgroundColor = .white
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        8
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
+        cell.backgroundColor = .tealColor
+        
+        cell.textLabel?.text = "Company name"
+        cell.textLabel?.font = .boldSystemFont(ofSize: 16)
+        cell.textLabel?.textColor = .white
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .lightBlue
+        return view
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        50
     }
 
     private func setupNavBar() {
-        let lightRed = UIColor(red: 247 / 255,
-                               green: 66 / 255,
-                               blue: 82 / 255,
-                               alpha: 1)
-        
         navigationItem.title = "Companies"
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = lightRed
+        appearance.backgroundColor = .lightRed
         appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
@@ -45,7 +61,13 @@ class ViewController: UIViewController {
                                                             target: self,
                                                             action: #selector(didTapAddCompany))
         
-        
+    }
+    
+    private func setupTableView() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellId")
+        tableView.backgroundColor = .darkBlue
+        tableView.tableFooterView = UIView()
+        tableView.separatorColor = .white
     }
     
     @objc
