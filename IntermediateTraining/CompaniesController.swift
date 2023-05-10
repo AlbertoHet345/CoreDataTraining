@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CompaniesController.swift
 //  IntermediateTraining
 //
 //  Created by Alberto Garcia on 07/05/23.
@@ -7,7 +7,13 @@
 
 import UIKit
 
-final class ViewController: UITableViewController {
+final class CompaniesController: UITableViewController {
+    
+    let companies = [
+        Company(name: "Apple", founded: Date()),
+        Company(name: "Google", founded: Date()),
+        Company(name: "Meta", founded: Date())
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,14 +23,16 @@ final class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        8
+        companies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath)
         cell.backgroundColor = .tealColor
         
-        cell.textLabel?.text = "Company name"
+        let company = companies[indexPath.row]
+        
+        cell.textLabel?.text = company.name
         cell.textLabel?.font = .boldSystemFont(ofSize: 16)
         cell.textLabel?.textColor = .white
         
@@ -44,19 +52,9 @@ final class ViewController: UITableViewController {
     private func setupNavBar() {
         navigationItem.title = "Companies"
         
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = .lightRed
-        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
-        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.tintColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.app.fill"),
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "plus"),
                                                             style: .plain,
                                                             target: self,
                                                             action: #selector(didTapAddCompany))
@@ -68,11 +66,17 @@ final class ViewController: UITableViewController {
         tableView.backgroundColor = .darkBlue
         tableView.tableFooterView = UIView()
         tableView.separatorColor = .white
+        tableView.sectionHeaderTopPadding = 0.0
     }
     
     @objc
     private func didTapAddCompany() {
+        let createCompanyController = CreateCompanyController()
         
+        let navController = NavigationController(rootViewController: createCompanyController)
+        navController.modalPresentationStyle = .fullScreen
+        
+        present(navController, animated: true)
     }
 }
 
